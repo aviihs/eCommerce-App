@@ -1,14 +1,17 @@
-import { View, ScrollView } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
-
-import Header from "@/components/Header"
-import SettingsItem from "@/components/SettingsItem"
-import SettingsSections from "@/components/SettingSections"
+import { View, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
+import Header from "@/components/Header";
+import SettingsItem from "@/components/SettingsItem";
+import SettingsSections from "@/components/SettingSections";
+import LanguageModal from "@/components/LanguageModal";
 
 export default function Account() {
+  const [openLang, setOpenLang] = useState(false);
+  const [language, setLanguage] = useState("English");
+
   return (
     <SafeAreaView className="flex-1 bg-gray-100">
-
       <Header
         title="Account"
         onMenuPress={() => console.log("menu")}
@@ -23,8 +26,19 @@ export default function Account() {
         </SettingsSections>
 
         <SettingsSections title="Language Settings">
-          <SettingsItem icon="language-outline" title="English" />
+          <SettingsItem
+            icon="language-outline"
+            title={language}
+            onPress={() => setOpenLang(true)}
+          />
         </SettingsSections>
+
+        <LanguageModal
+          visible={openLang}
+          onClose={() => setOpenLang(false)}
+          language={language}
+          setLanguage={setLanguage}
+        />
 
         <SettingsSections title="Customer Care">
           <SettingsItem icon="warning-outline" title="Report an Issue" />
@@ -45,7 +59,6 @@ export default function Account() {
         <View className="h-10" />
 
       </ScrollView>
-
     </SafeAreaView>
-  )
+  );
 }
