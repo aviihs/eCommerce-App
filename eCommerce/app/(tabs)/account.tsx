@@ -5,10 +5,12 @@ import Header from "@/components/Header";
 import SettingsItem from "@/components/SettingsItem";
 import SettingsSections from "@/components/SettingSections";
 import LanguageModal from "@/components/LanguageModal";
+import AboutAppModal from "@/components/AboutAppModal";
 
 export default function Account() {
   const [openLang, setOpenLang] = useState(false);
   const [language, setLanguage] = useState("English");
+  const [aboutVisible, setAboutVisible] = useState(false);
 
   return (
     <SafeAreaView className="flex-1 bg-gray-100">
@@ -19,10 +21,9 @@ export default function Account() {
       />
 
       <ScrollView className="px-3">
-
         <SettingsSections>
           <SettingsItem icon="log-in-outline" title="Login" />
-          <SettingsItem icon="person-outline" title="Join Jeevee" />
+          <SettingsItem icon="person-outline" title="Join eCommerce" />
         </SettingsSections>
 
         <SettingsSections title="Language Settings">
@@ -52,12 +53,23 @@ export default function Account() {
         <SettingsSections title="Legal and Policies">
           <SettingsItem icon="document-text-outline" title="Policies" />
           <SettingsItem icon="reader-outline" title="Terms and Conditions" />
-          <SettingsItem icon="information-circle-outline" title="About Jeevee" />
-          <SettingsItem icon="apps-outline" title="About App" />
+          <SettingsItem
+            icon="information-circle-outline"
+            title="About eCommerce"
+          />
+
+          <SettingsItem
+            icon="apps-outline"
+            title="About App"
+            onPress={() => setAboutVisible(true)}
+          />
         </SettingsSections>
+        <AboutAppModal
+          visible={aboutVisible}
+          onClose={() => setAboutVisible(false)}
+        />
 
         <View className="h-10" />
-
       </ScrollView>
     </SafeAreaView>
   );

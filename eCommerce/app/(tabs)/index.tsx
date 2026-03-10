@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import CategoryCard from "@/components/CategoryCard";
 import BannerCarousel from "@/components/BannerCarousel";
 import Card from "@/components/Card";
+import { useState } from "react";
 
 function TabHome() {
   const categories = [
@@ -42,8 +43,10 @@ function TabHome() {
       rating: 4.2,
     },
   ];
+
+const [selectedCategory,setSelectedCategory] = useState(0);
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-gray-100">
       <Header
         title="eCommerce"
         onMenuPress={() => console.log("menu")}
@@ -55,16 +58,30 @@ function TabHome() {
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          className="mt-4 px-4"
+          className="mt-4 px-4 bg-white py-2 mx-4 rounded-lg "
+          contentContainerStyle={{ paddingRight: 16 }}
         >
-          {categories.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              className="bg-gray-100 rounded-lg px-4 py-2 mr-3"
-            >
-              <Text className="text-sm font-medium">{item}</Text>
-            </TouchableOpacity>
-          ))}
+          {categories.map((item, index) => {
+    const isActive = selectedCategory === index;
+
+    return (
+      <TouchableOpacity
+        key={index}
+        onPress={() => setSelectedCategory(index)}
+        className={`rounded-lg px-3 py-2 mr-3 ${
+          isActive ? "bg-[#0051ff53]" : "bg-none"
+        }`}
+      >
+        <Text
+          className={`text-sm font-medium ${
+            isActive ? "text-[#0051ff]" : "text-black"
+          }`}
+        >
+          {item}
+        </Text>
+      </TouchableOpacity>
+    );
+  })}
         </ScrollView>
 
         {/* Banner */}
@@ -94,13 +111,13 @@ function TabHome() {
           </View>
         </ScrollView>
 
-        <View className="mt-4 px-4">
+        <TouchableOpacity className="mt-4 px-4" activeOpacity={0.6} >
           <Image
             source={require("@/assets/banner2.jpg")}
             className="w-full h-34 rounded-xl"
             resizeMode="cover"
           />
-        </View>
+        </TouchableOpacity>
 
         <View className="mt-6 px-4 flex items-center justify-center">
           <Text className="font-bold text-xl">Trending Now:</Text>
