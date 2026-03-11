@@ -6,8 +6,12 @@ import SettingsItem from "@/components/SettingsItem";
 import SettingsSections from "@/components/SettingSections";
 import LanguageModal from "@/components/LanguageModal";
 import AboutAppModal from "@/components/AboutAppModal";
+import { useRouter } from "expo-router";
+
 
 export default function Account() {
+ const router = useRouter();
+
   const [openLang, setOpenLang] = useState(false);
   const [language, setLanguage] = useState("English");
   const [aboutVisible, setAboutVisible] = useState(false);
@@ -22,8 +26,8 @@ export default function Account() {
 
       <ScrollView className="px-3">
         <SettingsSections>
-          <SettingsItem icon="log-in-outline" title="Login" />
-          <SettingsItem icon="person-outline" title="Join eCommerce" />
+          <SettingsItem icon="log-in-outline" title="Login" onPress={() => router.replace("/login")}/>
+          <SettingsItem icon="person-outline" title="Join eCommerce" onPress={() => router.replace("/signup")}/>
         </SettingsSections>
 
         <SettingsSections title="Language Settings">

@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Home,  Search, Zap, Tag, User } from "lucide-react-native";
+import { Home, Search, Zap, Tag, User } from "lucide-react-native";
 import Colors from "@/constants/Colors";
 
 export default function TabLayout() {
@@ -31,6 +31,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Home size={24} color={color} strokeWidth={2} />
           ),
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "bold" },
         }}
       />
 
@@ -41,6 +42,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Search size={24} color={color} strokeWidth={2} />
           ),
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "bold" },
         }}
       />
 
@@ -51,6 +53,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Zap size={24} color={color} strokeWidth={2} />
           ),
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "bold" },
         }}
       />
 
@@ -61,6 +64,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Tag size={24} color={color} strokeWidth={2} />
           ),
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "bold" },
         }}
       />
 
@@ -71,6 +75,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <User size={24} color={color} strokeWidth={2} />
           ),
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "bold" },
         }}
       />
     </Tabs>
