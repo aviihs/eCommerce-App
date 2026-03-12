@@ -17,6 +17,7 @@
         "backgroundColor": "#E6F4FE",
         "backgroundImage": "./assets/images/splashL.png"
       },
+      "softwareKeyboardLayoutMode": "pan",
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.av_ihs.eCommerce"

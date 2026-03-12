@@ -37,7 +37,6 @@ export default function SideMenuModal({ visible, onClose }: Props) {
   return (
     <Modal transparent visible={visible} animationType="none">
       <View className="flex-1 flex-row">
-        {/* Drawer */}
         <Animated.View
           style={{
             width: menuWidth,
@@ -45,11 +44,9 @@ export default function SideMenuModal({ visible, onClose }: Props) {
           }}
           className="bg-white h-full pt-6 px-4"
         >
-          {/* Menu Content */}
           <SideMenuContent />
         </Animated.View>
 
-        {/* Overlay */}
         <TouchableOpacity
           className="flex-1 bg-black/40"
           activeOpacity={1}

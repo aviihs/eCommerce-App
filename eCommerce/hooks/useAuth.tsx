@@ -24,7 +24,6 @@ const userShiva = {
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
 
-  // Signup
   const signup = (data: SignupData, router: Router) => {
     const { name, email, phone, password } = data;
 
@@ -46,7 +45,7 @@ export const useAuth = () => {
 
     setTimeout(() => {
       router.replace("/login");
-    }, 500);
+    }, 400);
 
     return true;
   };
