@@ -34,7 +34,7 @@ export default function Login() {
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
-          paddingBottom: 100,
+          paddingBottom: 80,
         }}
         keyboardShouldPersistTaps="handled"
       >

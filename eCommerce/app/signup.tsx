@@ -31,7 +31,7 @@ export default function Signup() {
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
-          paddingBottom: 100,
+          paddingBottom: 60,
         }}
         keyboardShouldPersistTaps="handled"
       >
